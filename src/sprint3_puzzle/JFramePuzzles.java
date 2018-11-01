@@ -36,7 +36,7 @@ public class JFramePuzzles extends javax.swing.JFrame {
     buttonLayout = getContentPane();
     buttonLayout.setLayout(new GridLayout(4, 4));
 
-    for(int i = 0; i < 15; i++) 
+    for(int i = 0; i < 16; i++) 
         {
             JButton button = new JButton();
             button.setText(String.valueOf(i));

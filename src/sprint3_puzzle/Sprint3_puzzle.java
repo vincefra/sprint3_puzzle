@@ -24,12 +24,8 @@ public class Sprint3_puzzle {
         jFramePuzzle.setLocationRelativeTo(null);
         jFramePuzzle.setResizable(false);
         */
-        
-        //PuzzleTile puzzleTile = new PuzzleTile();
-        
-        SlidingPuzzles myGame = new SlidingPuzzles();
-        myGame.go();
-        
+
+        new SlidingPuzzles().initiate();  
     }
     
 }

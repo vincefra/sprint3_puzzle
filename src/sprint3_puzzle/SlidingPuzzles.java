@@ -18,55 +18,64 @@ import javax.swing.JPanel;
  *
  * @author work
  */
-public class SlidingPuzzles extends JPanel implements MouseListener  {
+public class SlidingPuzzles extends JPanel implements MouseListener  
+{
+    JFrame jFrame;
+    ArrayList<PuzzleTile> puzzleList = new ArrayList<>();
+    PuzzleTile[] puzzleTile;
 
-    JFrame myFrame;
-    ArrayList<PuzzleTile> myList = new ArrayList<>();
-    PuzzleTile[] square;
-    
-    
-    public SlidingPuzzles() {
+    public SlidingPuzzles() 
+    {
         initComponents();
     }
     
-    public void go()
+    public void initiate()
     {
-        myFrame = new JFrame("Numeric Sliding Puzzle");
-        square = new PuzzleTile[16];
-        myFrame.setLayout(new GridLayout(4,4)); //set the frame to be 3×3.
+        jFrame = new JFrame("sprint3_puzzle");
+        jFrame.setLayout(new GridLayout(4,4)); //4x4 grid
+        puzzleTile = new PuzzleTile[16]; //16 bitar
         
+        generatePuzzleTiles();
+        randomPuzzles();
+        packFrame();    
+    }
+    
+    public void packFrame()
+    {
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setSize(400,400);
+        jFrame.setLocationRelativeTo(null);
+        jFrame.setVisible(true);
+    }
+    
+    public void generatePuzzleTiles()
+    {
+        //skapa bitarna och lägg i array, för senare randomiza
+        for(int i=0; i < 16; i++)
+            puzzleList.add(new PuzzleTile(i));
+    }
+    
+    public void randomPuzzles()
+    {
+        //denna loop för lägga bitarna random
         for(int i=0; i < 16; i++)
         {
-            PuzzleTile aTile = new PuzzleTile(i);
-            myList.add(aTile);
-            // generate 9 puzzletiles and add them to an ArrayList. 
+            int rand = (int)(Math.random() * puzzleList.size() - 1);
+            
+            puzzleTile[i] = puzzleList.get(rand); 
+            puzzleTile[i].addMouseListener(this);
+            
+            jFrame.getContentPane().add(puzzleTile[i]); // add it to the frame
+            puzzleList.remove(rand);
         }
-        
-        for(int i=0; i < 16; i++)
-        {
-            int index= (int)(Math.random()*myList.size()-1);
-            square[i] = myList.get(index); 
-            // randomly get a puzzletile from the ArrayList and add it to an array called square.
-            square[i].addMouseListener(this); // add mouselistener to it.
-            myFrame.getContentPane().add(square[i]); // add it to the frame.
-            myList.remove(index); // remove the puzzletile we have just got from the ArrayList.so that next time we won’t get it any more from the ArrayList.
-            // this for loop make the puzzletile randomly displayed on the frame.
-        }
-        
-        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        myFrame.setSize(400,400);
-        myFrame.setLocationRelativeTo(null);
-        myFrame.setVisible(true);
     }
     
     @Override
     public void mouseEntered(MouseEvent e)
     {
         if(e.getComponent().getBackground()!= Color.WHITE)
-        {
             e.getComponent().setBackground(Color.GRAY);
             // if the color of the tile is not white, turn the color of it to gray when the mouse button enter a tile.
-        }
     }
     
     /**
@@ -77,10 +86,8 @@ public class SlidingPuzzles extends JPanel implements MouseListener  {
     public void mouseExited(MouseEvent e)
     {
         if(e.getComponent().getBackground()!= Color.WHITE)
-        {
             e.getComponent().setBackground(Color.darkGray);
             // if the color of the tile is not white, turn the color of it to garkgray when the mouse button exit a tile.
-        }
     }
     
     /**
@@ -91,40 +98,39 @@ public class SlidingPuzzles extends JPanel implements MouseListener  {
     @Override
     public void mouseClicked(MouseEvent e)
     {
-        int num = 0, choice = 0;
-        boolean done = true;
-        int x = e.getComponent().getX(); // get the x coordinate of the tile’s origin which player has clicked.
-        int y = e.getComponent().getY(); // get the y coordinate of the tile’s origin which player has clicked.
-
-        for(int i=0; i < 16; i++ )
-        {
-            if (square[i].getBackground()==Color.WHITE)
-            {
-                num = i;
-            }
-        } // this for loop get the white tile in the array called square.
+        int whiteTile = 0, choice = 0;
+        int userX = e.getComponent().getX();
+        int userY = e.getComponent().getY();
         
-        int x2 = square[num].getX(); // get the x coordinate of the white tile’s origin.
-        int y2 = square[num].getY(); // get the y coordinate of the white tile’s origin.
+        boolean done = true;
+        
+        //get the empty tile aka whiteTile
+        for (int x = 0; x < 16; x++)
+            if (puzzleTile[x].getBackground() == Color.WHITE)
+                whiteTile = x;
+        
+        int whiteX = puzzleTile[whiteTile].getX(); // get the x coordinate of the white tile’s origin.
+        int whiteY = puzzleTile[whiteTile].getY(); // get the y coordinate of the white tile’s origin.
 
-        if((Math.abs(x-x2) < 140 && Math.abs(x-x2) > 1 && y==y2) || (Math.abs(y-y2) < 140 && Math.abs(y-y2) > 1 && x == x2))
+        if ((Math.abs(userX-whiteX) < 140 && Math.abs(userX - whiteX) > 1 && userY == whiteY) ||
+                (Math.abs(userY-whiteY) < 140 && Math.abs(userY - whiteY) > 1 && userX == whiteX))
         {
             // if the tile which player has just clicked around the white tile.
             e.getComponent().setBackground(Color.WHITE); // set the background color of the tile which player has clicked to white.
-            square[num].setNumber(((PuzzleTile)e.getComponent()).getNumber());
+            puzzleTile[whiteTile].setNumber(((PuzzleTile)e.getComponent()).getNumber());
             
             // put a number on the white tile. This number is just the number on the tile which player has clisked.
-            square[num].setBackground(Color.darkGray); // change the white tile’s color to darkgray.
+            puzzleTile[whiteTile].setBackground(Color.darkGray); // change the white tile’s color to darkgray.
         } // just finished the ‘move’ of the tile.
 
-        for(int i=0; i < 16; i++ )
+        for(int x=0; x < 16; x++ )
         {
             // check whether the order of the tile is: blank, 1, 2, 3, 4, 5, 6, 7, 8.
-            if (square[i].getBackground() == Color.WHITE)
+            if (puzzleTile[x].getBackground() == Color.WHITE)
             {
                 continue;
             }
-            if (!square[i].getNumber().equals("" + i))
+            if (!puzzleTile[x].getNumber().equals("" + x))
             {
                 done = false;
                 break;
@@ -139,7 +145,7 @@ public class SlidingPuzzles extends JPanel implements MouseListener  {
             // generate a window with 3 buttons: yes, no, cancel.
             if (choice == JOptionPane.YES_OPTION){
             // if the player clicks yes button.
-            myFrame.setVisible(false); // make the current frame invisible.
+            jFrame.setVisible(false); // make the current frame invisible.
             SlidingPuzzle myGame = new SlidingPuzzle();
             myGame.go();
             // make a new frame just as the former one.
