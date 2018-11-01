@@ -1,48 +1,52 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sprint3_puzzle;
 
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-/**
- *
- * @author work
- */
-public class JFramePuzzles extends javax.swing.JFrame {
+public class JFramePuzzles extends JFrame 
+{
 
-    /**
-     * Creates new form JFramePuzzles
-     */
-    
     static ArrayList<JButton> buttonList = new ArrayList();
    
-    public JFramePuzzles() {
+    public JFramePuzzles() 
+    {
         initComponents();
         
-    Container buttonLayout;
-    /**
-     * Exits the program when closed is clicked
+        JPanel mainPanel = new JPanel();
+        
+        Container buttonLayout;
 
-    /**
-     * Makes the Pane into a Grid Layout so the Buttons 
-     * Line up
-     */
-    buttonLayout = getContentPane();
-    buttonLayout.setLayout(new GridLayout(4, 4));
+        buttonLayout = getContentPane();
+        buttonLayout.setLayout(new GridLayout(4, 4));
 
-    for(int i = 0; i < 16; i++) 
+        for(int i = 0; i < 16; i++) 
+            {
+                JButton button = new JButton();
+                mainPanel.addMouseListener((MouseListener) button);
+                button.setText(String.valueOf(i));
+                buttonList.add(button);
+                buttonLayout.add(button);
+            }
+       
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for(int i = 0; i < 16; i++) 
         {
-            JButton button = new JButton();
-            button.setText(String.valueOf(i));
-            buttonList.add(button);
-            buttonLayout.add(button);
+            int random = (int)(Math.random() * buttonList.size() - 1);
+
+            while (!numbers.contains(random)) 
+            {
+                numbers.add(random);
+                buttonList.get(i).setText("" + random);
+            }
         }
+        
+        
+        add(mainPanel);
     }
     /**
      * This method is called from within the constructor to initialize the form.

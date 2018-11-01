@@ -212,12 +212,18 @@ public class JFramePuzzle extends JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JFramePuzzle().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new JFramePuzzle().setVisible(true);
         });
+        
+        go();
     }
+    
+    public static void go()
+    {
+        
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
