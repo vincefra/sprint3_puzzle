@@ -11,8 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public final class TestPuzzle extends JFrame implements ActionListener {
-    
+public final class TestPuzzle extends JFrame implements ActionListener 
+{
     JFrame frame = new JFrame();
     JPanel panel = new JPanel();
     
@@ -20,7 +20,6 @@ public final class TestPuzzle extends JFrame implements ActionListener {
     
     int maxTiles = 16;
 
-    
     TestPuzzle()
     {
         panel.setLayout(new GridLayout(0,4));
@@ -89,15 +88,6 @@ public final class TestPuzzle extends JFrame implements ActionListener {
                 return i;
         
         return 0;
-    }
-    
-    public String getButtonText(String number)
-    {
-        for(int i = 0; i < maxTiles; i++) 
-            if (buttonList.get(i).getText().equalsIgnoreCase(number))
-                return "" + i;
-        
-        return null;
     }
     
     public void checkFinished()
