@@ -139,9 +139,9 @@ public final class TestPuzzle extends JFrame implements ActionListener {
             {
                 if (getButtonWhitePosition() == 1 || getButtonWhitePosition() == 4)
                 {
-                    temp = buttonList.get(15).getText();
+                    temp = buttonList.get(getButtonWhitePosition()).getText();
                     currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                     
                 }
                 break;
@@ -151,9 +151,9 @@ public final class TestPuzzle extends JFrame implements ActionListener {
             {
                 if (getButtonWhitePosition() == 0 || getButtonWhitePosition() == 5 || getButtonWhitePosition() == 2)
                 {
-                    temp = buttonList.get(15).getText();
+                    temp = buttonList.get(getButtonWhitePosition()).getText();
                     currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                     
                 }
                 break;
@@ -163,9 +163,9 @@ public final class TestPuzzle extends JFrame implements ActionListener {
             {
                 if (getButtonWhitePosition() == 1 || getButtonWhitePosition() == 6 || getButtonWhitePosition() == 3)
                 {
-                    temp = buttonList.get(15).getText();
+                    temp = buttonList.get(getButtonWhitePosition()).getText();
                     currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                     
                 }
                 break;
@@ -174,9 +174,9 @@ public final class TestPuzzle extends JFrame implements ActionListener {
             {
                 if (getButtonWhitePosition() == 2 || getButtonWhitePosition() == 7)
                 {
-                    temp = buttonList.get(15).getText();
+                    temp = buttonList.get(getButtonWhitePosition()).getText();
                     currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                     
                 }
                 break;
@@ -185,9 +185,9 @@ public final class TestPuzzle extends JFrame implements ActionListener {
             {
                 if (getButtonWhitePosition() == 0 || getButtonWhitePosition() == 5 || getButtonWhitePosition() == 8)
                 {
-                    temp = buttonList.get(15).getText();
+                    temp = buttonList.get(getButtonWhitePosition()).getText();
                     currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                     
                 }
                 break;
@@ -196,42 +196,42 @@ public final class TestPuzzle extends JFrame implements ActionListener {
             {
                 if (getButtonWhitePosition() == 1 || getButtonWhitePosition() == 4 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 6)
                 {
-                    temp = buttonList.get(15).getText();
+                    temp = buttonList.get(getButtonWhitePosition()).getText();
                     currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                     
                 }
                 break;
             }
             case 6:
             {
-                          if (getButtonWhitePosition() == 1 || getButtonWhitePosition() == 4 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 6)
+                if (getButtonWhitePosition() == 2 || getButtonWhitePosition() == 5 || getButtonWhitePosition() == 7 || getButtonWhitePosition() == 10)
                 {
-                    temp = buttonList.get(15).getText();
+                    temp = buttonList.get(getButtonWhitePosition()).getText();
                     currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                     
                 }
                 break;
             }
             case 7:
             {
-                          if (getButtonWhitePosition() == 1 || getButtonWhitePosition() == 4 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 6)
+                if (getButtonWhitePosition() == 3 || getButtonWhitePosition() == 6 || getButtonWhitePosition() == 11)
                 {
-                    temp = buttonList.get(15).getText();
+                    temp = buttonList.get(getButtonWhitePosition()).getText();
                     currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                     
                 }
                 break;
             }
             case 8:
             {
-                          if (getButtonWhitePosition() == 1 || getButtonWhitePosition() == 4 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 6)
+                if (getButtonWhitePosition() == 4 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 12)
                 {
-                    temp = buttonList.get(15).getText();
+                    temp = buttonList.get(getButtonWhitePosition()).getText();
                     currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                     
                 }
                 break;
@@ -239,11 +239,11 @@ public final class TestPuzzle extends JFrame implements ActionListener {
             
             case 9:
             {
-                          if (getButtonWhitePosition() == 1 || getButtonWhitePosition() == 4 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 6)
+                if (getButtonWhitePosition() == 5 || getButtonWhitePosition() == 8 || getButtonWhitePosition() == 10 || getButtonWhitePosition() == 13)
                 {
-                    temp = buttonList.get(15).getText();
+                    temp = buttonList.get(getButtonWhitePosition()).getText();
                     currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                     
                 }
                 break;
@@ -251,11 +251,11 @@ public final class TestPuzzle extends JFrame implements ActionListener {
             
             case 10:
             {
-                          if (getButtonWhitePosition() == 1 || getButtonWhitePosition() == 4 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 6)
+                if (getButtonWhitePosition() == 6 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 11 || getButtonWhitePosition() == 14)
                 {
-                    temp = buttonList.get(15).getText();
+                    temp = buttonList.get(getButtonWhitePosition()).getText();
                     currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                     
                 }
                 break;
@@ -263,11 +263,11 @@ public final class TestPuzzle extends JFrame implements ActionListener {
             
             case 11:
             {
-                          if (getButtonWhitePosition() == 1 || getButtonWhitePosition() == 4 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 6)
+                if (getButtonWhitePosition() == 7 || getButtonWhitePosition() == 10 || getButtonWhitePosition() == 15)
                 {
-                    temp = buttonList.get(15).getText();
+                    temp = buttonList.get(getButtonWhitePosition()).getText();
                     currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                     
                 }
                 break;
@@ -275,11 +275,11 @@ public final class TestPuzzle extends JFrame implements ActionListener {
             
             case 12:
             {
-                          if (getButtonWhitePosition() == 1 || getButtonWhitePosition() == 4 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 6)
+                if (getButtonWhitePosition() == 8 || getButtonWhitePosition() == 13)
                 {
-                    temp = buttonList.get(15).getText();
+                    temp = buttonList.get(getButtonWhitePosition()).getText();
                     currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                     
                 }
                 break;
@@ -287,11 +287,11 @@ public final class TestPuzzle extends JFrame implements ActionListener {
             
             case 13:
             {
-                          if (getButtonWhitePosition() == 1 || getButtonWhitePosition() == 4 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 6)
+                if (getButtonWhitePosition() == 12 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 14)
                 {
-                    temp = buttonList.get(15).getText();
+                    temp = buttonList.get(getButtonWhitePosition()).getText();
                     currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                     
                 }
                 break;
@@ -301,9 +301,10 @@ public final class TestPuzzle extends JFrame implements ActionListener {
             {
                 if (getButtonWhitePosition() == 13 || getButtonWhitePosition() == 10 || getButtonWhitePosition() == 15)
                 {
-                    temp = buttonList.get(15).getText();
-                    currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
+                    JOptionPane.showMessageDialog(null, getButtonWhitePosition());
+                    JOptionPane.showMessageDialog(null, currentButton.getText());
+                    currentButton.setText("");
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                     
                 }
                 break;
@@ -313,10 +314,9 @@ public final class TestPuzzle extends JFrame implements ActionListener {
             {
                 if (getButtonWhitePosition() == 14 || getButtonWhitePosition() == 11)
                 {
-                    temp = buttonList.get(15).getText();
+                    temp = buttonList.get(getButtonWhitePosition()).getText();
                     currentButton.setText(temp);
-                    buttonList.get(15).setText(e.getActionCommand());
-                    
+                    buttonList.get(getButtonWhitePosition()).setText(e.getActionCommand());
                 }
                 break;
             }
