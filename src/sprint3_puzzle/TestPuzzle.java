@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -35,9 +36,13 @@ public final class TestPuzzle extends JFrame implements ActionListener
         
         buttonList.get(15).setText("");
         
-        JButton newgame = new JButton("Nytt spel");
+        JButton newgame = new JButton("New game");
         panel.add(newgame);
         newgame.addActionListener(this);
+        
+        JButton finished = new JButton("Testvinn");
+        panel.add(finished);
+        finished.addActionListener(this);
         
         generatePuzzleTiles();
         
@@ -90,10 +95,16 @@ public final class TestPuzzle extends JFrame implements ActionListener
         return 0;
     }
     
-    public void checkFinished()
+    public void checkFinished(boolean test)
     {
-        for(int i = 0; i < maxTiles; i++) 
-            if (!buttonList.get(i).getText().equalsIgnoreCase("" + i))
+        if (test)
+        {
+            for(int i = 0; i < maxTiles-1; i++)
+                buttonList.get(i).setText("" + (i+1));
+        }
+        
+        for(int i = 0; i < maxTiles-1; i++) 
+            if (!buttonList.get(i).getText().equalsIgnoreCase("" + (i+1)))
                 return;
  
         int choice = JOptionPane.showConfirmDialog (null, "Would you like to play again?", "Congrats my dear fellow, you have won!", JOptionPane.YES_NO_CANCEL_OPTION);
@@ -107,9 +118,14 @@ public final class TestPuzzle extends JFrame implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        if (e.getActionCommand().equalsIgnoreCase("Nytt spel"))
+        if (e.getActionCommand().equalsIgnoreCase("New game"))
         {
             generatePuzzleTiles();
+            return;
+        }
+        else if (e.getActionCommand().equalsIgnoreCase("Testvinn"))
+        {
+            checkFinished(true);
             return;
         }
         
