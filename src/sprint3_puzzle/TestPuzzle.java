@@ -46,7 +46,6 @@ public final class TestPuzzle extends JFrame implements ActionListener
         
         generatePuzzleTiles();
         
-        frame.pack();
         frame.setSize(400, 400);
         frame.setLocation(1000, 500);
         frame.setVisible(true);
