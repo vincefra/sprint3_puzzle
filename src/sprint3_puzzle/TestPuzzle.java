@@ -46,7 +46,6 @@ public final class TestPuzzle extends JFrame implements ActionListener
         
         generatePuzzleTiles();
         
-        frame.pack();
         frame.setSize(400, 400);
         frame.setLocation(1000, 500);
         frame.setVisible(true);
@@ -114,28 +113,9 @@ public final class TestPuzzle extends JFrame implements ActionListener
         else if (choice == JOptionPane.NO_OPTION)
             System.exit(0);
     }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        
-        if (e.getActionCommand().equalsIgnoreCase("New game"))
-        {
-            generatePuzzleTiles();
-            return;
-        }
-        else if (e.getActionCommand().equalsIgnoreCase("Win"))
-        {
-            checkFinished(true);
-            return;
-        }
-        
-        //vi får fram knappens position genom att kolla igenom vilken knapp som har följande siffra
-        int currentButtonPosition = getButtonPosition(e.getActionCommand());
-        int currentWhitePosition = getButtonWhitePosition();
-        JButton currentButton = getButton(e.getActionCommand());
-
-        String temp;
-        
+    
+    public String checkMovement(int currentButtonPosition, int currentWhitePosition)
+    {      
         /*
             0 kan flytta till 1,4
             1 kan flytta till 0,5,2
@@ -160,172 +140,122 @@ public final class TestPuzzle extends JFrame implements ActionListener
             case 0:
             {
                 if (getButtonWhitePosition() == 1 || getButtonWhitePosition() == 4)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
             
             case 1:
             {
                 if (getButtonWhitePosition() == 0 || getButtonWhitePosition() == 5 || getButtonWhitePosition() == 2)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
             
             case 2:
             {
                 if (getButtonWhitePosition() == 1 || getButtonWhitePosition() == 6 || getButtonWhitePosition() == 3)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
             case 3:
             {
                 if (getButtonWhitePosition() == 2 || getButtonWhitePosition() == 7)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
             case 4:
             {
                 if (getButtonWhitePosition() == 0 || getButtonWhitePosition() == 5 || getButtonWhitePosition() == 8)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
             case 5:
             {
                 if (getButtonWhitePosition() == 1 || getButtonWhitePosition() == 4 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 6)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
             case 6:
             {
                 if (getButtonWhitePosition() == 2 || getButtonWhitePosition() == 5 || getButtonWhitePosition() == 7 || getButtonWhitePosition() == 10)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
             case 7:
             {
                 if (getButtonWhitePosition() == 3 || getButtonWhitePosition() == 6 || getButtonWhitePosition() == 11)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
             case 8:
             {
                 if (getButtonWhitePosition() == 4 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 12)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
             
             case 9:
             {
                 if (getButtonWhitePosition() == 5 || getButtonWhitePosition() == 8 || getButtonWhitePosition() == 10 || getButtonWhitePosition() == 13)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
             
             case 10:
             {
                 if (getButtonWhitePosition() == 6 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 11 || getButtonWhitePosition() == 14)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
             
             case 11:
             {
                 if (getButtonWhitePosition() == 7 || getButtonWhitePosition() == 10 || getButtonWhitePosition() == 15)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
             
             case 12:
             {
                 if (getButtonWhitePosition() == 8 || getButtonWhitePosition() == 13)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
             
             case 13:
             {
                 if (getButtonWhitePosition() == 12 || getButtonWhitePosition() == 9 || getButtonWhitePosition() == 14)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
             
             case 14:
             {
                 if (getButtonWhitePosition() == 13 || getButtonWhitePosition() == 10 || getButtonWhitePosition() == 15)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
             
             case 15:
             {
                 if (getButtonWhitePosition() == 14 || getButtonWhitePosition() == 11)
-                {
-                    temp = buttonList.get(currentButtonPosition).getText();
-                    currentButton.setText("");
-                    buttonList.get(currentWhitePosition).setText(temp);
-                }
-                break;
+                    return buttonList.get(currentButtonPosition).getText();
             }
+            
+            default:
+                return "";
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        if (e.getActionCommand().equalsIgnoreCase("New game"))
+        {
+            generatePuzzleTiles();
+            return;
+        }
+        else if (e.getActionCommand().equalsIgnoreCase("Win"))
+        {
+            checkFinished(true);
+            return;
+        }
+        
+        //vi får fram knappens position genom att kolla igenom vilken knapp som har följande siffra
+        int currentButtonPosition = getButtonPosition(e.getActionCommand());
+        int currentWhitePosition = getButtonWhitePosition();
+        JButton currentButton = getButton(e.getActionCommand());
+        
+        if (checkMovement(currentButtonPosition, currentWhitePosition).length() > 0)
+        {
+            buttonList.get(currentWhitePosition).setText(checkMovement(currentButtonPosition, currentWhitePosition));
+            currentButton.setText("");
+            checkFinished(false);
         }
     }
 }
